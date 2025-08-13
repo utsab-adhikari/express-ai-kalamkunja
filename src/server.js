@@ -5,7 +5,7 @@ import studioRoute from "./routes/studioRoutes.js";
 import rateLimit from "express-rate-limit";
 
 const aiLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
+  windowMs: 2 * 60 * 1000, // 1 minute
   max: 1,
   message: {
     status: 429,
