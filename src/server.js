@@ -9,7 +9,7 @@ const aiLimiter = rateLimit({
   max: (req, res) => {
     const user = req.body.user;
 
-    if (!user || user === "undefined") return 1; // guest
+    if (!user || user === "undefined") return 2; // guest
     if (user.role === "admin") return 5000; // admin
     if (user.isVerified) return 5; // verified
     return 2; // not verified
@@ -20,7 +20,7 @@ const aiLimiter = rateLimit({
     if (!user || user === "undefined") {
       return res.status(429).json({
         status: 429,
-        message: "Sign In required for more ",
+        message: "Sign In required [or wait for 5 min]",
       });
     }
     if (!user.isVerified) {
@@ -31,7 +31,7 @@ const aiLimiter = rateLimit({
     }
     return res.status(429).json({
       status: 429,
-      message: "Too many requests",
+      message: "Too many requests [ wait for 5 min]",
     });
   },
 });
