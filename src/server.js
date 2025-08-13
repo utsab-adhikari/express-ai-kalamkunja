@@ -5,11 +5,34 @@ import studioRoute from "./routes/studioRoutes.js";
 import rateLimit from "express-rate-limit";
 
 const aiLimiter = rateLimit({
-  windowMs: 2 * 60 * 1000, // 1 minute
-  max: 1,
-  message: {
-    status: 429,
-    message: "Too many requests",
+  windowMs: 5 * 60 * 1000, // 5 minutes
+  max: (req, res) => {
+    const user = req.body.user;
+
+    if (!user || user === "undefined") return 1; // guest
+    if (user.role === "admin") return 5000; // admin
+    if (user.isVerified) return 5; // verified
+    return 2; // not verified
+  },
+  handler: (req, res) => {
+    const user = req.body.user;
+
+    if (!user || user === "undefined") {
+      return res.status(429).json({
+        status: 429,
+        message: "Sign In required for more ",
+      });
+    }
+    if (!user.isVerified) {
+      return res.status(429).json({
+        status: 429,
+        message: "Verify account to increase limit",
+      });
+    }
+    return res.status(429).json({
+      status: 429,
+      message: "Too many requests",
+    });
   },
 });
 
