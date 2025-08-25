@@ -34,7 +34,7 @@ https://express-ai-kalamkunja.onrender.com
 - **Backend Framework:** Express.js
 - **AI Tools:** OpenRouter/OpenAI
 - **Database:** MongoDB
-- **Deployment:** Node.js / Docker
+- **Deployment:** Render/Node.js
 
 ---
 
