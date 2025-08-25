@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KalamKunja - AI Express Server</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f6fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #1e293b, #3b82f6);
+      color: white;
+    }
+
+    header img {
+      width: 100px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    header img:hover {
+      transform: rotate(10deg);
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media(min-width: 700px){
+      .container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px; /* sharper edge */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .card h2 {
+      color: #1e40af;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      flex-grow: 1;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 8px 6px;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      background: #1e40af;
+      color: white;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .links a:hover {
+      background: #1e3a8a;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://kalamkunja.vercel.app/logo_1.png" alt="KalamKunja Logo" />
+    <h1>KalamKunja - Express AI Server</h1>
+    <p>Powering intelligent automation & AI-driven features for the KalamKunja platform.</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>About This Server</h2>
+      <p>
+        The <strong>KalamKunja AI Server</strong> is built with <strong>Express.js</strong> 
+        to handle advanced AI tasks such as article summarization, SEO content creation, 
+        intelligent chatbot interactions, and automation workflows.  
+      </p>
+      <p>
+        Integrates seamlessly with the <strong>KalamKunja Next.js frontend</strong> to provide 
+        users with a smooth and intelligent writing experience.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Frontend</h2>
+      <p>Visit the main frontend application of KalamKunja.</p>
+      <a href="https://kalamkunj.vercel.app" target="_blank">🌐 Open Frontend</a>
+    </div>
+
+    <div class="card">
+      <h2>GitHub Repository</h2>
+      <p>Explore the source code for this AI Express server.</p>
+      <a href="https://github.com/utsab-adhikari/express-ai-kalamkunja" target="_blank">📂 GitHub Repo</a>
+    </div>
+
+    <div class="card">
+      <h2>Connect with Me</h2>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/utsabadhikari" target="_blank">LinkedIn</a>
+        <a href="https://github.com/utsab-adhikari" target="_blank">GitHub</a>
+        <a href="https://wa.me/9867508725" target="_blank">WhatsApp</a>
+        <a href="mailto:utsabadhikari075@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 KalamKunja | Developed by Utsab Adhikari
+  </footer>
+</body>
+</html>

@@ -6,6 +6,8 @@ import rateLimit from "express-rate-limit";
 import "./script/saver.js";
 import scraperRoute from "./routes/scraperRoutes.js";
 import summarizerRoute from "./routes/summarizerRoutes.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const aiLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
@@ -65,8 +67,11 @@ app.use(
 
 app.use(express.json());
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.get("/", (req, res) => {
-  res.send("Hello sir ji");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.use("/v1/ai", aiLimiter, studioRoute);
