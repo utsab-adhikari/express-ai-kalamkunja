@@ -9,8 +9,11 @@ This repository contains the **Express.js backend** responsible for handling AI-
 
 🔗 **Frontend Repo:** [Kalamkunja Next Frontend](https://github.com/utsab-adhikari/Kalamkunja)
 
-🔗 **Live Demo:**
+🔗 **Full Stack Live Demo:**
 https://kalamkunja.vercel.app
+
+🔗 **Server Live Demo:**
+https://express-ai-kalamkunja.onrender.com
 
 ---
 
