@@ -32,11 +32,15 @@ export const Studio = async (req, res) => {
 
     const aiMessage = chatCompletion.choices[0].message.content;
 
-    {body.user && body.user !== "undefined" && await AiArticle.create({
-      title: userMessage,
-      content: aiMessage,
-      author: body.user.id,
-    })}
+    if (body?.user?.id) {
+      const aiArticle = new AiArticle({
+        title: userMessage,
+        content: aiMessage,
+        author: body.user.id,
+      });
+
+      await aiArticle.save();
+    }
 
     return res.status(200).json({
       from: "ai",
