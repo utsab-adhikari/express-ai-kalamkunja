@@ -1,6 +1,8 @@
 import OpenAI from "openai";
 import assistantProfile from "../db/chatbotinstruction.js";
 import dotenv from "dotenv";
+import AiArticle from "../models/aiArticleModel.js";
+import connectDB from "../db/ConnectDB.js";
 
 dotenv.config();
 
@@ -10,10 +12,10 @@ const openai = new OpenAI({
 });
 
 export const Studio = async (req, res) => {
+  await connectDB();
   try {
     const body = await req.body;
     const userMessage = body.message;
-
     if (!userMessage) {
       return res
         .status(400)
@@ -29,6 +31,12 @@ export const Studio = async (req, res) => {
     });
 
     const aiMessage = chatCompletion.choices[0].message.content;
+
+    {body.user && body.user !== "undefined" && await AiArticle.create({
+      title: userMessage,
+      content: aiMessage,
+      author: body.user.id,
+    })}
 
     return res.status(200).json({
       from: "ai",
